@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
-import './App.css';
-import Home from './components/Home/Home';
+
 import Filtro from './components/Filtro/Filtro';
 import Carrinho from './components/Carrinho/Carrinho';
 import styled from 'styled-components';
@@ -36,5 +34,4 @@ const App = () => {
     </>
   );
 }
-
 export default App;
