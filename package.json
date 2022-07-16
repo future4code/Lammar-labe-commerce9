@@ -9,6 +9,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "react-select": "^5.4.0",
     "styled-components": "^5.3.5"
   },
   "scripts": {
