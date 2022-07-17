@@ -1,35 +1,48 @@
 import React from "react";
-import Css from "./Style.css"
-import ContProd from "./ContProd"
-import Order from "./Order"
-import Products from "./Products"
+import { CardContainer, Titulo, Preço, AddToCartButton, ProdutosHeader, GridProdutos, ProdutosContainer } from "./styles";
 
-export function Home(props){
-    return(
-        <div className="shopping-list">
-        <ContProd/>
-       <Order/>
-       <Products
-        urlimg="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDvPxPk9n93CB03IjcaiSo590lsQwcip3Fwg&usqp=CAU"
-        Nome="Foguete Russo Roscove"
-        Valor="R$ 10.000,00"
-        Descricao="NFT do Melhor do Mundo"
-       />
-           <Products
-        urlimg="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrzH3Ovb-ovQhfTvlXoboEp4RnuPhqTPDUKBUghyh3UH1YirIQVQKyqieMZxbGZDadtTU&usqp=CAU"
-        Nome="Foguete Russo Roscove"
-        Valor="R$ 150.000,00"
-        Descricao="Card"
-       />
-           <Products
-        urlimg="https://i.pinimg.com/474x/8a/1f/93/8a1f93852f3779f391ffbcd3924dc536.jpg"
-        Nome="Foguete Russo Roscove"
-        Valor="R$ 19.000,00"
-        Descricao="Viagens de tirar vc do chão"
-       />
-  
-      </div>
-    )
-}
+const Produtos = (props) => {
 
-export default Home
+  const obterListaFiltrada = () => {
+    return props.produtos
+      //filtro valor minimo
+      .filter((produtos) => props.valorMinimo <= produtos.preco)
+      //filtro valor maximo
+      .filter((produtos) => props.valorMaximo >= produtos.preco)
+      //filtro busca
+      .filter((produtos) => produtos.titulo.toLowerCase().includes(props.buscarPorNome.toLowerCase()))
+  };
+
+  const listaFiltrada = obterListaFiltrada().map((produtos) => {
+    return (
+      <CardContainer>
+        <img src={produtos.imagem} alt="imagemDoProduto" />
+        <Titulo>{produtos.titulo}</Titulo>
+        <Preço>R${produtos.preco},00</Preço>
+        <AddToCartButton
+          onClick={() => props.addProdutoCarrinho(produtos.id)}>
+          Adicionar ao carrinho
+        </AddToCartButton>
+      </CardContainer>
+    )});
+
+  return (
+    <ProdutosContainer>
+      <ProdutosHeader>
+        <p>Quantidade de produtos: {listaFiltrada.length}</p>
+        <label>
+          Ordenação:
+          <select name="order">
+            <option value="Oc">Ordem Crescente</option>
+            <option value="Od">Ordem Decrescente</option>
+          </select>
+        </label>
+      </ProdutosHeader>
+      <GridProdutos>
+        {listaFiltrada}
+      </GridProdutos>
+    </ProdutosContainer>
+  );
+};
+
+export default Produtos;
