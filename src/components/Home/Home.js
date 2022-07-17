@@ -19,8 +19,7 @@ const Produtos = (props) => {
         <img src={produtos.imagem} alt="imagemDoProduto" />
         <Titulo>{produtos.titulo}</Titulo>
         <Preço>R${produtos.preco},00</Preço>
-        <AddToCartButton
-          onClick={() => props.addProdutoCarrinho(produtos.id)}>
+        <AddToCartButton>
           Adicionar ao carrinho
         </AddToCartButton>
       </CardContainer>
