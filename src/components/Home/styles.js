@@ -4,12 +4,14 @@ export const ProdutosContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 60vw;
-`;
+`
+
 export const ProdutosHeader = styled.header`
   display: flex;
   justify-content: space-between;
   margin: 0px;
-`;
+`
+
 export const GridProdutos = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -17,7 +19,8 @@ export const GridProdutos = styled.div`
   padding: 16px;
   justify-content: space-between;
   text-align: center;
-`;
+`
+
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,7 +36,8 @@ export const CardContainer = styled.div`
     height: 60%;
     border-radius: 16px 16px 0 0;
   }
-`;
+`
+
 export const AddToCartButton = styled.button`
   align-self: center;
   width: 200px;
@@ -49,7 +53,8 @@ export const AddToCartButton = styled.button`
   padding: 1px 6px;
   margin: 4%;
   color: #fff;
-`;
+`
+
 export const Titulo = styled.div`
   display: flex;
   align-items: center;
@@ -57,9 +62,10 @@ export const Titulo = styled.div`
   font-size: 1.2em;
   font-weight: bold;
   padding: 1%;
-`;
+`
+
 export const Preço = styled.div`
   color: #ee4d2d;
   font-weight: bold;
   padding: 1%;
-`;
+`
