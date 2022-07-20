@@ -14,7 +14,8 @@ const produtos = [
     {
       id: 3, imagem: "https://www.dhresource.com/webp/m/0x0/f2/albu/g9/M00/5F/38/rBVaVV0HKBKAMPiMAEsaH98fKGc289.jpg",
       titulo: "Camiseta da Nasa Branca",
-      preco: 20
+      preco: 20,
+      quantidade: 1
     },
 
     {
