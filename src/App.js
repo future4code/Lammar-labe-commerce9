@@ -49,6 +49,7 @@ const App = () => {
         <Carrinho 
            preco={produtos.preco}
            nome={produtos.titulo}
+           produtos={produtos}
          /*   adicionaProduto={adicionaProduto}
            quantidade={quantidade}
            addProduto={addProduto} */
