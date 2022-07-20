@@ -13,13 +13,17 @@ const Produtos = (props) => {
       .filter((produtos) => produtos.titulo.toLowerCase().includes(props.buscarPorNome.toLowerCase()))
   };
 
+  //Carrinho
+
+
+//Renderização após o filtro
   const listaFiltrada = obterListaFiltrada().map((produtos) => {
     return (
       <CardContainer>
         <img src={produtos.imagem} alt="imagemDoProduto" />
         <Titulo>{produtos.titulo}</Titulo>
         <Preço>R${produtos.preco},00</Preço>
-        <AddToCartButton>
+        <AddToCartButton onClick={props.addProduto}>
           Adicionar ao carrinho
         </AddToCartButton>
       </CardContainer>

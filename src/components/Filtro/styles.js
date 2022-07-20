@@ -4,7 +4,7 @@ export const ContainerFiltro = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  height: 80vh;
+  height: 40vh;
   padding: 0px 10px;
 `
 
