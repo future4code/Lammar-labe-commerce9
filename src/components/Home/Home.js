@@ -1,7 +1,8 @@
 import React from "react";
 import { ProdutosContainer, ProdutosHeader, GridProdutos, CardContainer, Titulo, Preço, AddToCartButton } from "./styles";
 
-const Home = (props) =>{
+
+const Home = (props) => {
   const obterListaFiltrada = () => {
     return props.produtos
       //filtro valor minimo
@@ -12,21 +13,18 @@ const Home = (props) =>{
       .filter((produtos) => produtos.titulo.toLowerCase().includes(props.buscarPorNome.toLowerCase()))
   };
 
-  //Carrinho
-
-
-//Renderização após o filtro
   const listaFiltrada = obterListaFiltrada().map((produtos) => {
     return (
       <CardContainer>
         <img src={produtos.imagem} alt="imagemDoProduto" />
         <Titulo>{produtos.titulo}</Titulo>
         <Preço>R${produtos.preco},00</Preço>
-        <AddToCartButton onClick={props.addProduto}>
+        <AddToCartButton onClick={() => props.addProdutoCarrinho(produtos.id)}>
           Adicionar ao carrinho
         </AddToCartButton>
       </CardContainer>
-    )});
+    )
+  });
 
   return (
     <ProdutosContainer>
