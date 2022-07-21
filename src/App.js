@@ -9,22 +9,43 @@ const App = () => {
   const [valorMinimo, setValorMinimo] = useState(-Infinity);
   const [valorMaximo, setValorMaximo] = useState(Infinity);
   const [buscar, setBuscar] = useState("");
+  const [carrinho, setCarrinho] = useState([]);
 
-  //estados do Carrinho
-/*   const [adicionaProduto, setAdicionaProduto] = useState("")
-  const [quantidade, setQuantidade] = useState(0) */
+  const addProdutoCarrinho = (id) => {
+    const index = carrinho.findIndex((produto) => {
+      return produto.id === id;
+    });
+    // Se o produto não existir no carrinho, adiciona o produto
+    if (index < 0) {
+      const novoProduto = {
+        ...produtos.find((produto) => produto.id === id),
+        quantidade: 1,
+      };
+      const novoCarrinho = [...carrinho, novoProduto];
+      setCarrinho(novoCarrinho);
+      // Se o produto já existir no carrinho, soma 1 na quantidade
+    } else {
+      const novoCarrinho = carrinho.map(produto => {
+        if (produto.id === id) {
+          return { ...produto, quantidade: produto.quantidade + 1 };
+        }
+        return produto;
+      });
+      setCarrinho(novoCarrinho);
+    }
+  };
+  const removerProduto = (id) => {
+    const novoCarrinho = carrinho
+      .map((produtos) => {
+        if (produtos.id === id) {
+          return { ...produtos, quantidade: produtos.quantidade - 1 };
+        }
+        return produtos;
+      })
+      .filter((produtos) => produtos.quantidade > 0);
+    setCarrinho(novoCarrinho);
+  };
 
- //Adicionar produto no carrinho
- /*  const addProduto = (e) => {
-    e.preventDefault()
-
-    const prodAdd = {qnt: produtos.id, nome: produtos.titulo}
-    const listaDeProdutos = [...produtos, prodAdd]
-
-    setAdicionaProduto(listaDeProdutos)
-  } */
-
-  //Remover item
 
 
   return (
@@ -39,25 +60,14 @@ const App = () => {
           onChangeBuscar={(e) => setBuscar(e.target.value)}
         />
         <Home
-          produtos={produtos}
-          valorMinimo={valorMinimo}
+          produtos={produtos} valorMinimo={valorMinimo}
           valorMaximo={valorMaximo}
           buscarPorNome={buscar}
+          addProdutoCarrinho={addProdutoCarrinho}
 
-        
+
         />
-        <Carrinho 
-           preco={produtos.preco}
-           nome={produtos.titulo}
-           produtos={produtos}
-         /*   adicionaProduto={adicionaProduto}
-           quantidade={quantidade}
-           addProduto={addProduto} */
-        
-          /*  onChangeAdicionaProduto={(e) => setAdicionaProduto(e.targe.value)}
-           onChangeQuantidade={(e) => setQuantidade(e.target.value)} */
-         
-        />
+        <Carrinho carrinho={carrinho} removerProduto={removerProduto} />
       </AppContainer>
     </>
   );

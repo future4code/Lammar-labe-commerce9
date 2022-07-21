@@ -1,23 +1,22 @@
 import React from 'react'
-import { Container, Main, P, Button} from './style'
+import { Container, P, Button } from './style'
 
-const Carrinho = (produtos) => {
+const Carrinho = (props) => {
+  const listCarrinho = props.carrinho.map((e) => {
+    return (
+      <>
+        <P>{e.quantidade}{e.titulo}</P>
+        <Button onClick={() => props.removerProduto(e.id)}>Remover</Button>
+      </>
+    )
+  })
+
+
   return (
     <Container>
-
       <h3>Carrinho:</h3>
-
-      <Main>
-        <p>1x</p>
-        <P>
-          <p>{produtos.titulo}Teste</p>
-        </P>
-        <Button>Remover</Button>
-      </Main>
-
-      <Main>
-        <p>Valor total R$ 0,00</p>
-      </Main>
+      {listCarrinho}
+      <p>Valor total R$ 0,00</p>
     </Container>
   )
 }
