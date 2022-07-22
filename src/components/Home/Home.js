@@ -11,7 +11,11 @@ const Home = (props) => {
       .filter((produtos) => props.valorMaximo >= produtos.preco || props.valorMaximo === "")
       //filtro busca
       .filter((produtos) => produtos.titulo.toLowerCase().includes(props.buscarPorNome.toLowerCase()))
+      //Order
+      .sort((a, b) => props.sort === "Crescente" ? a.preco - b.preco : b.preco - a.preco)
   };
+
+
 
   const listaFiltrada = obterListaFiltrada().map((produtos) => {
     return (
@@ -32,9 +36,9 @@ const Home = (props) => {
         <p>Quantidade de produtos: {listaFiltrada.length}</p>
         <label>
           Ordenação:
-          <select name="order">
-            <option value="Oc">Ordem Crescente</option>
-            <option value="Od">Ordem Decrescente</option>
+          <select value={props.sort} onChange={props.setSort}>
+            <option value={"Crescente"}>Crescente</option>
+            <option value={"Decrescente"}>Decrescente</option>
           </select>
         </label>
       </ProdutosHeader>
