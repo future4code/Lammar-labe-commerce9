@@ -14,17 +14,16 @@ const App = () => {
   const [guardaDados, setGuardaDados] = useState("")
 
 
-  useEffect(
-    () => {
-      console.log("funcionando");
-      setGuardaDados(localStorage.getItem("carrinho"))
-    }, [setCarrinho]
+  useEffect(() => {
+      setCarrinho(lista)
+    }, []
   )
 
-  if (carrinho) {
-    localStorage.setItem("carrinho", JSON.stringify(carrinho))
-  }
-
+  if(carrinho.length !== 0)
+  localStorage.setItem("carrinho", JSON.stringify(carrinho))
+  
+  const retorno = localStorage.getItem("carrinho")
+  const lista = JSON.parse(retorno)
 
   const addProdutoCarrinho = (id) => {
 
