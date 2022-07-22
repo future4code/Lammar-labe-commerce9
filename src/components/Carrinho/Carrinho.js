@@ -3,9 +3,14 @@ import { Container, Main, P, Button } from './style'
 
 const Carrinho = (props) => {
   const listCarrinho = props.carrinho.map((e) => {
+
+    let soma2 = e.quantidade * e.preco
+
     return (
       <Main>
-        <P>{e.quantidade}x  {e.titulo}</P>
+        <P>{e.quantidade}x  {e.titulo}
+        <div>{soma2},00</div>
+        </P>
         <Button onClick={() => props.removerProduto(e.id)}>Remover</Button>
       </Main>
     )
@@ -21,7 +26,7 @@ const Carrinho = (props) => {
       {props.guardaDados}
       <h3>Carrinho:</h3>
       {listCarrinho}
-      <p>Valor total:{soma}</p>
+      <p>Valor total: R${soma},00</p>
     </Container>
   )
 }
