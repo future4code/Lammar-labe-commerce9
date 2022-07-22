@@ -14,10 +14,17 @@ export const Main = styled.div`
   align-items: center;
   margin: 7px;
   gap: 10px;
+  justify-content: center;
+    align-items: center;
+    border-bottom: inset;
+    display: block;
 `
 
 export const P = styled.p`
   display: flex;
+  div{
+    margin-left: 10px;
+  }
 `
 
 export const Button = styled.button`

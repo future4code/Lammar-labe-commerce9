@@ -9,21 +9,21 @@ const App = () => {
   const [valorMinimo, setValorMinimo] = useState(-Infinity);
   const [valorMaximo, setValorMaximo] = useState(Infinity);
   const [buscar, setBuscar] = useState("");
-  const [carrinho, setCarrinho] = useState([]);
   const [sort, setSort] = useState("Decrescente")
-  const [guardaDados, setGuardaDados] = useState("")
-
+  const [carrinho, setCarrinho] = useState(() => {
+    if (localStorage.getItem("carrinho")) {
+      return JSON.parse(localStorage.getItem("carrinho"));
+    }
+    return [];
+  })
 
   useEffect(() => {
-      setCarrinho(lista)
-    }, []
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    }, [carrinho]
   )
-
-  if(carrinho.length !== 0)
-  localStorage.setItem("carrinho", JSON.stringify(carrinho))
   
-  const retorno = localStorage.getItem("carrinho")
-  const lista = JSON.parse(retorno)
+  console.log(carrinho.length)
+  console.log(carrinho)
 
   const addProdutoCarrinho = (id) => {
 
@@ -48,7 +48,6 @@ const App = () => {
       });
       setCarrinho(novoCarrinho);
     }
-    /*   localStorage.setItem("carrinho", JSON.stringify(carrinho)) */
   };
   const removerProduto = (id) => {
     const novoCarrinho = carrinho
@@ -84,7 +83,6 @@ const App = () => {
         <Carrinho
           carrinho={carrinho}
           removerProduto={removerProduto}
-          guardaDados={guardaDados}
         />
       </AppContainer>
     </>
