@@ -1,4 +1,4 @@
-import React, { useState/* , useEffect  */ } from "react";
+import React, { useState, useEffect } from "react";
 import Filtro from "./components/Filtro/Filtro";
 import Carrinho from "./components/Carrinho/Carrinho";
 import Home from "./components/Home/Home";
@@ -11,19 +11,19 @@ const App = () => {
   const [buscar, setBuscar] = useState("");
   const [carrinho, setCarrinho] = useState([]);
   const [sort, setSort] = useState("Decrecente")
-  /*  const [guardaDados, setGuardaDados] = useState("") */
+  const [guardaDados, setGuardaDados] = useState("")
 
 
-  /*  useEffect(
-     () => {
-       console.log("funcionando");
-       setGuardaDados(localStorage.getItem("carrinho"))
-     }, []
-   )
- 
-   if (carrinho) {
-     localStorage.setItem("carrinho", "" + [])
-   } */
+  useEffect(
+    () => {
+      console.log("funcionando");
+      setGuardaDados(localStorage.getItem("carrinho"))
+    }, [setCarrinho]
+  )
+
+  if (carrinho) {
+    localStorage.setItem("carrinho", JSON.stringify(carrinho))
+  }
 
 
   const addProdutoCarrinho = (id) => {
@@ -49,7 +49,7 @@ const App = () => {
       });
       setCarrinho(novoCarrinho);
     }
-    /*  localStorage.setItem("carrinho", "" + []) */
+    /*   localStorage.setItem("carrinho", JSON.stringify(carrinho)) */
   };
   const removerProduto = (id) => {
     const novoCarrinho = carrinho
@@ -85,7 +85,7 @@ const App = () => {
         <Carrinho
           carrinho={carrinho}
           removerProduto={removerProduto}
-        /*  guardaDados={guardaDados} */
+          guardaDados={guardaDados}
         />
       </AppContainer>
     </>

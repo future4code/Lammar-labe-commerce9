@@ -18,9 +18,8 @@ const Carrinho = (props) => {
 
   return (
     <Container>
-
+      {props.guardaDados}
       <h3>Carrinho:</h3>
-      {/*  {props.guardaDados} */}
       {listCarrinho}
       <p>Valor total:{soma}</p>
     </Container>
