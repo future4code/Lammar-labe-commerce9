@@ -21,7 +21,7 @@ const Carrinho = (props) => {
       {props.guardaDados}
       <h3>Carrinho:</h3>
       {listCarrinho}
-      <p>Valor total:{soma}</p>
+      <p>Valor total: {soma},00</p>
     </Container>
   )
 }

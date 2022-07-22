@@ -10,7 +10,7 @@ const App = () => {
   const [valorMaximo, setValorMaximo] = useState(Infinity);
   const [buscar, setBuscar] = useState("");
   const [carrinho, setCarrinho] = useState([]);
-  const [sort, setSort] = useState("Decrecente")
+  const [sort, setSort] = useState("Decrescente")
   const [guardaDados, setGuardaDados] = useState("")
 
 
