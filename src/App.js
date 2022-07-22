@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Filtro from "./components/Filtro/Filtro";
 import Carrinho from "./components/Carrinho/Carrinho";
 import Home from "./components/Home/Home";
@@ -10,8 +10,24 @@ const App = () => {
   const [valorMaximo, setValorMaximo] = useState(Infinity);
   const [buscar, setBuscar] = useState("");
   const [carrinho, setCarrinho] = useState([]);
+  const [sort, setSort] = useState("Decrecente")
+  const [guardaDados, setGuardaDados] = useState("")
+
+
+  useEffect(
+    () => {
+      console.log("funcionando");
+      setGuardaDados(localStorage.getItem("carrinho"))
+    }, [setCarrinho]
+  )
+
+  if (carrinho) {
+    localStorage.setItem("carrinho", JSON.stringify(carrinho))
+  }
+
 
   const addProdutoCarrinho = (id) => {
+
     const index = carrinho.findIndex((produto) => {
       return produto.id === id;
     });
@@ -33,6 +49,7 @@ const App = () => {
       });
       setCarrinho(novoCarrinho);
     }
+    /*   localStorage.setItem("carrinho", JSON.stringify(carrinho)) */
   };
   const removerProduto = (id) => {
     const novoCarrinho = carrinho
@@ -45,8 +62,6 @@ const App = () => {
       .filter((produtos) => produtos.quantidade > 0);
     setCarrinho(novoCarrinho);
   };
-
-
 
   return (
     <>
@@ -64,10 +79,14 @@ const App = () => {
           valorMaximo={valorMaximo}
           buscarPorNome={buscar}
           addProdutoCarrinho={addProdutoCarrinho}
-
-
+          sort={sort}
+          setSort={(e) => setSort(e.target.value)}
         />
-        <Carrinho carrinho={carrinho} removerProduto={removerProduto} />
+        <Carrinho
+          carrinho={carrinho}
+          removerProduto={removerProduto}
+          guardaDados={guardaDados}
+        />
       </AppContainer>
     </>
   );
