@@ -8,8 +8,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
 const App = () => {
-  const [valorMinimo, setValorMinimo] = useState(-Infinity);
-  const [valorMaximo, setValorMaximo] = useState(Infinity);
+  const [valorMinimo, setValorMinimo] = useState(0);
+  const [valorMaximo, setValorMaximo] = useState(250);
   const [buscar, setBuscar] = useState("");
   const [sort, setSort] = useState("Decrescente")
   const [carrinho, setCarrinho] = useState(() => {
@@ -23,9 +23,6 @@ const App = () => {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
   }, [carrinho]
   )
-
-  console.log(carrinho.length)
-  console.log(carrinho)
 
   const addProdutoCarrinho = (id) => {
 
