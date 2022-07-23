@@ -4,6 +4,8 @@ import Carrinho from "./components/Carrinho/Carrinho";
 import Home from "./components/Home/Home";
 import produtos from "./components/MockDeDados";
 import { AppContainer } from "./styles";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const [valorMinimo, setValorMinimo] = useState(0);
@@ -19,7 +21,7 @@ const App = () => {
 
   useEffect(() => {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    }, [carrinho]
+  }, [carrinho]
   )
 
   const addProdutoCarrinho = (id) => {
@@ -60,6 +62,7 @@ const App = () => {
 
   return (
     <>
+      <Header />
       <AppContainer>
         <Filtro
           valorMaximo={valorMaximo}
@@ -82,6 +85,7 @@ const App = () => {
           removerProduto={removerProduto}
         />
       </AppContainer>
+      <Footer />
     </>
   );
 };
