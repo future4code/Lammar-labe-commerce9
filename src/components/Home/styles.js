@@ -48,7 +48,7 @@ export const Titulo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2em;
+  font-size: 16px;
   font-weight: bold;
   padding: 1%;
 `

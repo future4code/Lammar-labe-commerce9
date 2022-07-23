@@ -20,11 +20,9 @@ const produtos = [
 
   {
     id: 4, imagem: "https://www.dhresource.com/webp/m/0x0/f2/albu/g9/M01/0C/CB/rBVaVV5jiWaAR4PiAADbzUzmgxo325.jpg",
-    titulo: "Jaqueta Astronauta",
+    titulo: "Jaqueta Astronauta White",
     preco: 250
   },
-
-
 
   {
     id: 5, imagem: "https://www.dhresource.com/webp/m/0x0/f2/albu/g8/M01/9E/57/rBVaV1y_TkWAUHqfAAIfsI9HJMo554.jpg",
@@ -37,6 +35,10 @@ const produtos = [
     titulo: "Combo 2 Camisetas Manga Comprida",
     preco: 150
   },
+
+
+
+
 ];
 
 export default produtos;
