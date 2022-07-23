@@ -1,7 +1,6 @@
 import React from "react";
 import { ProdutosContainer, ProdutosHeader, GridProdutos, CardContainer, Titulo, Preço, AddToCartButton } from "./styles";
 
-
 const Home = (props) => {
   const obterListaFiltrada = () => {
     return props.produtos
@@ -14,8 +13,6 @@ const Home = (props) => {
       //Order
       .sort((a, b) => props.sort === "Crescente" ? a.preco - b.preco : b.preco - a.preco)
   };
-
-
 
   const listaFiltrada = obterListaFiltrada().map((produtos) => {
     return (
@@ -35,7 +32,7 @@ const Home = (props) => {
       <ProdutosHeader>
         <p>Quantidade de produtos: {listaFiltrada.length}</p>
         <label>
-          Ordenação:
+          <spam>Ordenação: </spam> 
           <select value={props.sort} onChange={props.setSort}>
             <option value={"Crescente"}>Crescente</option>
             <option value={"Decrescente"}>Decrescente</option>

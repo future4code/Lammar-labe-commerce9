@@ -2,7 +2,7 @@ const produtos = [
   {
     id: 1, imagem: "https://www.dhresource.com/webp/m/0x0/f2/albu/g8/M00/56/70/rBVaV1wKKeKAGIsoAAB1_93Zcoc509.jpg",
     titulo: "Jaqueta Moletom da Nasa",
-    preco: 100
+    preco: 200
   },
 
   {
@@ -23,8 +23,6 @@ const produtos = [
     titulo: "Jaqueta Astronauta",
     preco: 250
   },
-
-
 
   {
     id: 5, imagem: "https://www.dhresource.com/webp/m/0x0/f2/albu/g8/M01/9E/57/rBVaV1y_TkWAUHqfAAIfsI9HJMo554.jpg",

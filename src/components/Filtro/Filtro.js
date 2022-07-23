@@ -1,29 +1,33 @@
 import React from "react";
-import { ContainerFiltro, Titulo, InputContainer, Input, Bloco} from "./styles";
+import {
+  ContainerFiltro,
+  Titulo,
+  InputContainer,
+  Input,
+  Bloco,
+  ValoresInput,
+} from "./styles";
 
 const Filtro = (props) => {
   return (
     <>
       <ContainerFiltro>
         <Titulo>Filtros</Titulo>
+        Intervalo de Preço
         <InputContainer>
-          Valor mínimo:
           <Input
-            type="number"
-            placeholder="R$"
+            type="range"
+            min="20"
+            max="250"
+            step="10"
             value={props.valorMinimo}
             onChange={props.onChangeValorMinimo}
           />
         </InputContainer>
-        <InputContainer>
-          Valor maximo:
-          <Input
-            type="number"
-            placeholder="R$"
-            value={props.valorMaximo}
-            onChange={props.onChangeValorMaximo}
-          />
-        </InputContainer>
+        <ValoresInput>
+          <p>R$ {props.valorMinimo},00</p> -
+          <p>R$ {props.valorMaximo},00</p>
+        </ValoresInput>
         <Bloco>Pesquisar:</Bloco>
         <Input
           type="text"
