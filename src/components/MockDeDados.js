@@ -20,7 +20,7 @@ const produtos = [
 
   {
     id: 4, imagem: "https://www.dhresource.com/webp/m/0x0/f2/albu/g9/M01/0C/CB/rBVaVV5jiWaAR4PiAADbzUzmgxo325.jpg",
-    titulo: "Jaqueta Astronauta",
+    titulo: "Jaqueta Moletom da Nasa Branca",
     preco: 250
   },
 
