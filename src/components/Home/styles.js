@@ -35,14 +35,14 @@ export const AddToCartButton = styled.button`
   width: 200px;
   height: 40px;
   margin-top: 4px;
-  background-color: #ee4d2d;
+  background-color: rgb(255, 101, 0);
   text-transform: uppercase;
   cursor: pointer;
   font-weight: bold;
   font-size: 12px;
   border: 0;
   padding: 1px 6px;
-  color: #fff;
+  color: white;
 `
 export const Titulo = styled.div`
   display: flex;
@@ -53,7 +53,8 @@ export const Titulo = styled.div`
   padding: 1%;
 `
 export const Preço = styled.div`
-  color: #ee4d2d;
+  /* color: #ee4d2d; */
+  color: rgb(255, 101, 0);
   font-weight: bold;
   padding: 1%;
 `
