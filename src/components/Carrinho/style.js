@@ -23,8 +23,10 @@ export const Main = styled.div`
 
 export const P = styled.p`
   display: flex;
+  align-items: center;
   div {
     margin-left: 10px;
+    min-width: fit-content;
   }
 `;
 

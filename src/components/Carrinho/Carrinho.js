@@ -19,27 +19,26 @@ const Carrinho = (props) => {
     soma += i.quantidade * i.preco
   }
 
-  const finalizar = () => {
+  const alertMsg = () => {
     return (
-      alert(`Obrigado por comprar na nossa loja!\n\nTotal: R$ ${soma},00`)
+      alert(`Obrigado por comprar na nossa loja!\n\nTotal: R$ ${soma},00 😉`)
     )
   }
 
-  const finalizar2 = () => {
+  const finalizar = () => {
     if (listCarrinho.length > 0) {
     return (
-      <Finalizar onClick={finalizar}>Finalizar Compra</Finalizar>
+      <Finalizar onClick={alertMsg}>Finalizar Compra</Finalizar>
     )}
   }
 
     // 
   return (
     <Container>
-      {props.guardaDados}
       <h3>Carrinho:</h3>
       {listCarrinho}
       <p>Valor total: R$ {soma},00</p>
-      {finalizar2()}
+      {finalizar()}
     </Container>
 
   )
