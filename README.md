@@ -72,14 +72,14 @@ O projeto consiste em 3 grandes partes:
 ## Web
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-     <img src="./public/ecommerce.png">
+     <img src="./public/projeto-final.png">
 
 <h2>
     <br>
     <p style="font-weight: bold;">🔗 Link do projeto</p>
 </h2>
 
-➡ **[LabEcommerce grupo 9 Lamarr](https://tangible-station.surge.sh/)**
+➡ **[LabEcommerce grupo 9 Lamarr](https://bashful-account.surge.sh/)**
 
 <h2>
     <p style="font-weight: bold;">🔗 Link do Kanban</p>
