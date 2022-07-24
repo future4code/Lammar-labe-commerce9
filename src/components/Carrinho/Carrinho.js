@@ -35,7 +35,6 @@ const Carrinho = (props) => {
     // 
   return (
     <Container>
-      {props.guardaDados}
       <h3>Carrinho:</h3>
       {listCarrinho}
       <p>Valor total: R$ {soma},00</p>
